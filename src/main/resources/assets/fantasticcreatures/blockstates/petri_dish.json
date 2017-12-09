@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "normal": {
+            "model": "fantasticcreatures:petri_dish"
+        },
+        "inventory": {
+            "model": "fantasticcreatures:petri_dish",
+            "transform": "forge:default-block"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "fantasticcreatures:petri_dish"
+        },
+        "title": {
+            "translate": "advancements.biochemistry.root.title"
+        },
+        "description": {
+            "translate": "advancements.biochemistry.root.description"
+        },
+        "background": "minecraft:textures/gui/advancements/backgrounds/husbandry.png",
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "criteria": {
+        "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "fantasticcreatures:petri_dish"
+                    }
+                ]
+            }
+    }
+}
