@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "fantasticcreatures:items/amino_acid_cyclic"
-    }
-}
