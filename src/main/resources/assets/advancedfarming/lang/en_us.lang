@@ -1,0 +1,18 @@
+#Advancements
+advancements.farming.root.title=Advanced Farming
+advancements.farming.root.description=Because food was too easy
+
+#Block
+tile.crop_corn.name=Corn
+tile.oil_press.name=Oil Press
+tile.crop_tomato.name=Tomato
+
+#Item
+item.corn.name=Corn
+item.corn_seed.name=Corn Seeds
+item.pitchfork.name=Pitchfork
+item.scythe.name=Scythe
+item.sunflower_seed.name=Sunflower Seeds
+item.tomato.name=Tomato
+item.tomato_seed.name=Tomato Seeds
+item.watering_can.name=Watering Can
