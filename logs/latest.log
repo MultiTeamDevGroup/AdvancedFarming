@@ -1,16 +1,32 @@
-[19:33:28] [main/INFO]: Setting user: test
-[19:33:31] [main/WARN]: Skipping bad option: lastServer:
-[19:33:31] [main/INFO]: LWJGL Version: 2.9.4
-[19:33:33] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
-[19:33:35] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[19:33:35] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[19:33:35] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[19:33:35] [Thread-5/INFO]: OpenAL initialized.
-[19:33:36] [Sound Library Loader/INFO]: Sound engine started
-[19:33:38] [main/INFO]: Created: 512x512 textures-atlas
-[19:33:39] [main/WARN]: Skipping bad option: lastServer:
-[19:33:39] [main/INFO]: Narrator library for x64 successfully loaded
-[19:33:40] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
-[19:35:32] [main/INFO]: Stopping!
-[19:35:32] [main/INFO]: SoundSystem shutting down...
-[19:35:33] [main/WARN]: Author: Paul Lamb, www.paulscode.com
+[19:46:12] [main/INFO]: Setting user: test
+[19:46:15] [main/WARN]: Skipping bad option: lastServer:
+[19:46:15] [main/INFO]: LWJGL Version: 2.9.4
+[19:46:17] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
+[19:46:22] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[19:46:23] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[19:46:23] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:46:23] [Thread-5/ERROR]: Error in class 'LibraryLWJGLOpenAL'
+[19:46:23] [Thread-5/ERROR]: Unable to initialize OpenAL.  Probable cause: OpenAL not supported.
+[19:46:23] [Thread-5/WARN]: ERROR MESSAGE:
+[19:46:23] [Thread-5/INFO]: Could not locate OpenAL library.
+[19:46:23] [Thread-5/WARN]: STACK TRACE:
+[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:156)
+[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:102)
+[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:206)
+[19:46:23] [Thread-5/INFO]: paulscode.sound.libraries.LibraryLWJGLOpenAL.init(LibraryLWJGLOpenAL.java:164)
+[19:46:23] [Thread-5/INFO]: paulscode.sound.SoundSystem.CommandNewLibrary(SoundSystem.java:1576)
+[19:46:23] [Thread-5/INFO]: paulscode.sound.SoundSystem.CommandQueue(SoundSystem.java:2572)
+[19:46:23] [Thread-5/INFO]: paulscode.sound.CommandThread.run(CommandThread.java:121)
+[19:46:23] [Sound Library Loader/WARN]: ERROR MESSAGE:
+[19:46:23] [Sound Library Loader/INFO]: Could not locate OpenAL library.
+[19:46:23] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[19:46:23] [Thread-7/INFO]: Switching to No Sound
+[19:46:23] [Thread-7/INFO]: (Silent Mode)
+[19:46:24] [Sound Library Loader/INFO]: Sound engine started
+[19:46:25] [main/INFO]: Created: 512x512 textures-atlas
+[19:46:27] [main/WARN]: Skipping bad option: lastServer:
+[19:46:27] [main/INFO]: Narrator library for x64 successfully loaded
+[19:46:27] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[19:48:01] [main/INFO]: Stopping!
+[19:48:01] [main/INFO]: SoundSystem shutting down...
+[19:48:01] [main/WARN]: Author: Paul Lamb, www.paulscode.com
