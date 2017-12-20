@@ -4,49 +4,21 @@
         "model": "cross"
     },
     "variants": {
-        "half": {
-        },
-        "age": {
-            "0": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/0"
-                }
-            },
-            "1": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/1"
-                }
-            },
-            "2": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/2_upper"
-                }
-            },
-            "3": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/3_upper"
-                }
-            },
-            "4": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/4_upper"
-                }
-            },
-            "5": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/5_upper"
-                }
-            },
-            "6": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/6_upper"
-                }
-            },
-            "7": {
-                "textures": {
-                    "cross": "advancedfarming:blocks/corn/7_upper"
-                }
-            }
-        }
+        "age=0,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/0"}}],
+        "age=0,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/0"}}],
+        "age=1,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/1"}}],
+        "age=1,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/1"}}],
+        "age=2,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/2_upper"}}],
+        "age=2,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/2_lower"}}],
+        "age=3,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/3_upper"}}],
+        "age=3,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/3_lower"}}],
+        "age=4,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/4_upper"}}],
+        "age=4,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/4_lower"}}],
+        "age=5,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/5_upper"}}],
+        "age=5,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/5_lower"}}],
+        "age=6,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/6_upper"}}],
+        "age=6,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/6_lower"}}],
+        "age=7,half=upper": [{"textures": {"cross": "advancedfarming:blocks/corn/7_upper"}}],
+        "age=7,half=lower": [{"textures": {"cross": "advancedfarming:blocks/corn/7_lower"}}]
     }
 }

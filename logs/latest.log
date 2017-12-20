@@ -1,32 +1,75 @@
-[19:46:12] [main/INFO]: Setting user: test
-[19:46:15] [main/WARN]: Skipping bad option: lastServer:
-[19:46:15] [main/INFO]: LWJGL Version: 2.9.4
-[19:46:17] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
-[19:46:22] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[19:46:23] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[19:46:23] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[19:46:23] [Thread-5/ERROR]: Error in class 'LibraryLWJGLOpenAL'
-[19:46:23] [Thread-5/ERROR]: Unable to initialize OpenAL.  Probable cause: OpenAL not supported.
-[19:46:23] [Thread-5/WARN]: ERROR MESSAGE:
-[19:46:23] [Thread-5/INFO]: Could not locate OpenAL library.
-[19:46:23] [Thread-5/WARN]: STACK TRACE:
-[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:156)
-[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:102)
-[19:46:23] [Thread-5/INFO]: org.lwjgl.openal.AL.create(AL.java:206)
-[19:46:23] [Thread-5/INFO]: paulscode.sound.libraries.LibraryLWJGLOpenAL.init(LibraryLWJGLOpenAL.java:164)
-[19:46:23] [Thread-5/INFO]: paulscode.sound.SoundSystem.CommandNewLibrary(SoundSystem.java:1576)
-[19:46:23] [Thread-5/INFO]: paulscode.sound.SoundSystem.CommandQueue(SoundSystem.java:2572)
-[19:46:23] [Thread-5/INFO]: paulscode.sound.CommandThread.run(CommandThread.java:121)
-[19:46:23] [Sound Library Loader/WARN]: ERROR MESSAGE:
-[19:46:23] [Sound Library Loader/INFO]: Could not locate OpenAL library.
-[19:46:23] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[19:46:23] [Thread-7/INFO]: Switching to No Sound
-[19:46:23] [Thread-7/INFO]: (Silent Mode)
-[19:46:24] [Sound Library Loader/INFO]: Sound engine started
-[19:46:25] [main/INFO]: Created: 512x512 textures-atlas
-[19:46:27] [main/WARN]: Skipping bad option: lastServer:
-[19:46:27] [main/INFO]: Narrator library for x64 successfully loaded
-[19:46:27] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
-[19:48:01] [main/INFO]: Stopping!
-[19:48:01] [main/INFO]: SoundSystem shutting down...
-[19:48:01] [main/WARN]: Author: Paul Lamb, www.paulscode.com
+[07:32:13] [main/INFO]: Setting user: test
+[07:32:16] [main/WARN]: Skipping bad option: lastServer:
+[07:32:16] [main/INFO]: LWJGL Version: 2.9.4
+[07:32:19] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
+[07:32:23] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[07:32:24] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[07:32:24] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[07:32:24] [Thread-5/INFO]: OpenAL initialized.
+[07:32:24] [Sound Library Loader/INFO]: Sound engine started
+[07:32:26] [main/INFO]: Created: 512x512 textures-atlas
+[07:32:28] [main/WARN]: Skipping bad option: lastServer:
+[07:32:28] [main/INFO]: Narrator library for x64 successfully loaded
+[07:32:28] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[07:32:31] [Server thread/INFO]: Starting integrated minecraft server version 1.12.2
+[07:32:31] [Server thread/INFO]: Generating keypair
+[07:32:31] [Server thread/INFO]: Loaded 488 advancements
+[07:32:31] [Server thread/INFO]: Preparing start region for level 0
+[07:32:32] [Server thread/INFO]: Changing view distance to 12, from 10
+[07:32:33] [Server thread/INFO]: test[local:E:ee967ec1] logged in with entity id 41 at (526.6915175071105, 4.0, -1481.8375932973074)
+[07:32:33] [Server thread/INFO]: test joined the game
+[07:32:34] [Server thread/INFO]: Saving and pausing game...
+[07:32:34] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[07:32:34] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[07:32:34] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
+[07:32:34] [main/INFO]: Loaded 75 advancements
+[07:32:34] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@2e2bda9b[id=530fa97a-357f-3c19-94d3-0c5c65c18fe8,name=test,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3190) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_131]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_131]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_131]
+[07:32:39] [Server thread/INFO]: <test> OH NOES
+[07:32:39] [main/INFO]: [CHAT] <test> OH NOES
+[07:32:48] [Server thread/INFO]: <test> OH NOES
+[07:32:48] [main/INFO]: [CHAT] <test> OH NOES
+[07:33:03] [Server thread/INFO]: <test> OH NOES
+[07:33:03] [main/INFO]: [CHAT] <test> OH NOES
+[07:33:07] [Server thread/INFO]: <test> OH NOES
+[07:33:07] [Server thread/INFO]: <test> OH NOES
+[07:33:07] [main/INFO]: [CHAT] <test> OH NOES
+[07:33:07] [main/INFO]: [CHAT] <test> OH NOES
+[07:33:56] [Server thread/INFO]: <test> OH NOES
+[07:33:56] [main/INFO]: [CHAT] <test> OH NOES
+[07:33:57] [Server thread/INFO]: [test: Given [Torch] * 64 to test]
+[07:33:57] [main/INFO]: [CHAT] Given [Torch] * 64 to test
+[07:33:59] [Server thread/INFO]: <test> OH NOES
+[07:33:59] [main/INFO]: [CHAT] <test> OH NOES
+[07:34:44] [main/INFO]: Stopping!
+[07:34:44] [Server thread/INFO]: Stopping server
+[07:34:44] [Server thread/INFO]: Saving players
+[07:34:44] [Server thread/INFO]: test lost connection: Disconnected
+[07:34:44] [Server thread/INFO]: test left the game
+[07:34:44] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[07:34:44] [Server thread/INFO]: Saving worlds
+[07:34:44] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[07:34:44] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[07:34:44] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
+[07:34:44] [main/INFO]: SoundSystem shutting down...
+[07:34:44] [main/WARN]: Author: Paul Lamb, www.paulscode.com
