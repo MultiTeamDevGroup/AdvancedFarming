@@ -1,0 +1,18 @@
+#Advancements
+advancements.farming.root.title=Avancerat jordbruk
+advancements.farming.root.description=För att mat var för enkelt
+
+#Block
+tile.crop_corn.name=Majs
+tile.oil_press.name=Olje press
+tile.crop_tomato.name=Tomat
+
+#Item
+item.corn.name=Majs
+item.corn_seed.name=Majs kärnor
+item.pitchfork.name=Högaffel
+item.scythe.name=Lie
+item.sunflower_seed.name=Solrosfrön
+item.tomato.name=Tomat
+item.tomato_seed.name=Tomatfrön
+item.watering_can.name=Vattenkanna
