@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "advancedfarming:corn"
+    }
+  },
+  "result": {
+    "item": "advancedfarming:corn_seed",
+    "count": 5
+  }
+}

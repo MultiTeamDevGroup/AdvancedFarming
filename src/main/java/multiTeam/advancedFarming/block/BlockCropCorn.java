@@ -13,18 +13,23 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCropCorn extends BlockCrops {
 	public static final PropertyEnum<BlockCropCorn.EnumBlockHalf> HALF = PropertyEnum.<BlockCropCorn.EnumBlockHalf>create("half", BlockCropCorn.EnumBlockHalf.class);
 	
     public BlockCropCorn() {
-    	this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockCropCorn.EnumBlockHalf.LOWER));
+    	super();
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(HALF, BlockCropCorn.EnumBlockHalf.LOWER));
     	setUnlocalizedName("crop_corn");
     	setRegistryName("crop_corn");
     }
@@ -40,21 +45,21 @@ public class BlockCropCorn extends BlockCrops {
     }
     
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+    	checkAndDropBlock(worldIn, pos, state);
+    	
     	if (state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.LOWER) {
-    		super.updateTick(worldIn, pos, state, rand);
-
-            if (worldIn.getLightFromNeighbors(pos.up()) >= 9)
-            {
+    		if(worldIn.getBlockState(pos.down()).getBlock() == this) {
+    			Minecraft.getMinecraft().player.sendChatMessage("Merp");
+    			worldIn.setBlockState(pos, worldIn.getBlockState(pos.down()).withProperty(HALF, BlockCropCorn.EnumBlockHalf.UPPER));
+    		}
+    		
+    		if (worldIn.getLightFromNeighbors(pos.up()) >= 9) {
                 int i = this.getAge(state);
-
-                if (i < this.getMaxAge())
-                {
+                if (i < this.getMaxAge()) {
                     float f = getGrowthChance(this, worldIn, pos);
-
-                    if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int)(25.0F / f) + 1) == 0))
-                    {
-                    	BlockCropCorn cropcorn = (BlockCropCorn) worldIn.getBlockState(pos).getBlock();
-                    	cropcorn.grow(worldIn, pos, state);
+                    if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int)(25.0F / f) + 1) == 0)) {
+                    	worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+                    	growBoth(worldIn, pos, worldIn.getBlockState(pos));
                         net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
                     }
                 }
@@ -62,23 +67,49 @@ public class BlockCropCorn extends BlockCrops {
     	}
     }
     
-    public void grow(World worldIn, BlockPos pos, IBlockState state) {
+    private void growBoth(World worldIn, BlockPos pos, IBlockState state) {
     	if (state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.LOWER) {
-    		super.grow(worldIn, pos, state);
-    		if(this.getAge(state) >= 2) {
-    			 worldIn.setBlockState (pos.up(), worldIn.getBlockState(pos).withProperty(getHalfProperty(), BlockCropCorn.EnumBlockHalf.UPPER));
+    		if (state.getValue(AGE) > 1) {
+    			worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos).withProperty(HALF, BlockCropCorn.EnumBlockHalf.UPPER));
     		}
     	} else {
-    		IBlockState iblockstate = worldIn.getBlockState(pos.down());
-    		if (iblockstate.getBlock() instanceof BlockCropCorn) {
-    			BlockCropCorn lower = (BlockCropCorn)iblockstate.getBlock();
-    			lower.grow(worldIn, pos.down(), iblockstate);
-            }
+    		worldIn.setBlockState(pos.down(), worldIn.getBlockState(pos).withProperty(HALF, BlockCropCorn.EnumBlockHalf.LOWER));
     	}
+    }
+    
+    public void grow(World worldIn, BlockPos pos, IBlockState state) {
+    	super.grow(worldIn, pos, state);
+    	growBoth(worldIn, pos, state);
+    }
+    
+    public IBlockState getStateFromMeta(int meta) {
+    	if (meta >= 8) {
+    		return this.getDefaultState().withProperty(HALF, BlockCropCorn.EnumBlockHalf.UPPER).withProperty(AGE, meta - 8);
+    	} else {
+    		return this.getDefaultState().withProperty(HALF, BlockCropCorn.EnumBlockHalf.LOWER).withProperty(AGE, meta);
+    	}
+    }
+    
+    public int getMetaFromState(IBlockState state) {
+    	int meta = state.getValue(AGE);
+    	if (state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.UPPER) {
+    		meta += 8;
+    	}
+    	return meta;
     }
     
     public PropertyEnum getHalfProperty () {
     	return HALF;
+    }
+    
+    public BlockCropCorn.EnumBlockHalf getHalf (IBlockAccess blockAccess, BlockPos pos, IBlockState state) {
+		if (state.getBlock() == this) {
+			state = state.getActualState(blockAccess, pos);
+			return (BlockCropCorn.EnumBlockHalf)state.getValue(HALF);
+		} else {
+			return BlockCropCorn.EnumBlockHalf.LOWER;
+		}
+    	
     }
     
     /*
@@ -87,12 +118,11 @@ public class BlockCropCorn extends BlockCrops {
      */
     protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
     	if (!this.canBlockStay(worldIn, pos, state)) {
-    		Minecraft.getMinecraft().player.sendChatMessage("OH NOES");
-            boolean flag = state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.UPPER;
-            BlockPos blockpos = flag ? pos : pos.up();		//If flagged for upper, use pos. If not, use the next pos up.
-            BlockPos blockpos1 = flag ? pos.down() : pos;	//If flagged for upper, uses the next pos down. If not, uses pos.
-            Block block = (Block)(flag ? this : worldIn.getBlockState(blockpos).getBlock());	//Makes sure to always be the upper block
-            Block block1 = (Block)(flag ? worldIn.getBlockState(blockpos1).getBlock() : this);	//Makes sure to always be the lower block
+    		boolean flag = state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.UPPER;
+            BlockPos blockpos = flag ? pos : pos.up();
+            BlockPos blockpos1 = flag ? pos.down() : pos;
+            Block block = (Block)(flag ? this : worldIn.getBlockState(blockpos).getBlock());
+            Block block1 = (Block)(flag ? worldIn.getBlockState(blockpos1).getBlock() : this);
 
             if (!flag) this.dropBlockAsItem(worldIn, pos, state, 0); //Forge move above the setting to air.
 
@@ -103,16 +133,23 @@ public class BlockCropCorn extends BlockCrops {
             if (block1 == this) {
                 worldIn.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 3);
             }
-        }
+    	}
     }
     
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (state.getBlock() != this) return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-        if (state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.UPPER) {
-            return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.CROP_CORN;
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+    	if (state.getBlock() != this) return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+    	if (state.getValue(HALF) == BlockCropCorn.EnumBlockHalf.UPPER) {
+            return worldIn.getBlockState(pos.down()).getBlock() == this && (worldIn.getLight(pos) >= 8 || worldIn.canSeeSky(pos));
         } else {
-            return super.canBlockStay(worldIn, pos, state);
+            Boolean above = true;
+            if (getAge(state) > 1) {
+            	above = worldIn.getBlockState(pos.up()).getBlock() == this;
+            } else {
+            	above = worldIn.isAirBlock(pos.up());
+            }
+            
+            IBlockState soil = worldIn.getBlockState(pos.down());
+            return above && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
         }
     }
     
