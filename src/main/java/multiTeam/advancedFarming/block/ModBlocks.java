@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
-	public static BlockCropCorn CROP_CORN = new BlockCropCorn();
+	public static BlockCropDouble CROP_CORN = new BlockCropDouble();
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
