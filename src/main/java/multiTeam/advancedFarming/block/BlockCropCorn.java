@@ -10,7 +10,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockCropCorn extends BlockCropDouble {
+	
 	BlockCropCorn() {
+		super(2, 7);
 		setUnlocalizedName("crop_corn");
     	setRegistryName("crop_corn");
 	}

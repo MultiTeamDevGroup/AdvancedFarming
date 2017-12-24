@@ -366,6 +366,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/bone_meal_from_bone": {
+    "criteria": {
+      "has_bone": "2017-12-24 11:02:03 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/diamond_boots": {
     "criteria": {
       "has_diamond": "2017-12-19 20:21:52 -0500"

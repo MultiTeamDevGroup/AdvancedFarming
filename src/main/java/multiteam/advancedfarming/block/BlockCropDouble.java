@@ -24,13 +24,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCropDouble extends BlockCrops {
+	public final PropertyInteger CROP_AGE;
 	public static final PropertyEnum<BlockCropDouble.EnumBlockHalf> HALF = PropertyEnum.<BlockCropDouble.EnumBlockHalf>create("half", BlockCropDouble.EnumBlockHalf.class);
-	public static final int age_double;
+	public final int age_double;
+	public final int age_mature;
 	
-    public BlockCropDouble(int age_double) {
+    public BlockCropDouble(int age_double, int age_mature) {
     	super();
     	this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(HALF, BlockCropDouble.EnumBlockHalf.LOWER));
     	this.age_double = age_double;
+    	this.age_mature = age_mature;
+    	this.CROP_AGE = PropertyInteger.create("age", 0, age_mature);
     }
     
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
@@ -53,7 +57,7 @@ public class BlockCropDouble extends BlockCrops {
     
     private void growBoth(World worldIn, BlockPos pos, IBlockState state) {
     	if (state.getValue(HALF) == BlockCropDouble.EnumBlockHalf.LOWER) {
-    		if (state.getValue(AGE) > 1) {
+    		if (state.getValue(CROP_AGE) >= age_double) {
     			worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos).withProperty(HALF, BlockCropDouble.EnumBlockHalf.UPPER));
     		}
     	} else {
@@ -67,23 +71,32 @@ public class BlockCropDouble extends BlockCrops {
     }
     
     public IBlockState getStateFromMeta(int meta) {
-    	if (meta >= 8) {
-    		return this.getDefaultState().withProperty(HALF, BlockCropDouble.EnumBlockHalf.UPPER).withProperty(AGE, meta - 8);
+    	if (meta > age_mature) {
+    		return this.getDefaultState().withProperty(HALF, BlockCropDouble.EnumBlockHalf.UPPER).withProperty(CROP_AGE, meta - (age_mature + 1));
     	} else {
-    		return this.getDefaultState().withProperty(HALF, BlockCropDouble.EnumBlockHalf.LOWER).withProperty(AGE, meta);
+    		return this.getDefaultState().withProperty(HALF, BlockCropDouble.EnumBlockHalf.LOWER).withProperty(CROP_AGE, meta);
     	}
     }
     
     public int getMetaFromState(IBlockState state) {
-    	int meta = state.getValue(AGE);
+    	int meta = state.getValue(CROP_AGE);
     	if (state.getValue(HALF) == BlockCropDouble.EnumBlockHalf.UPPER) {
-    		meta += 8;
+    		meta += age_mature + 1;
     	}
     	return meta;
     }
     
-    public PropertyEnum getHalfProperty () {
+    protected PropertyInteger getAgeProperty () {
+    	return CROP_AGE;
+    }
+    
+    protected PropertyEnum getHalfProperty () {
     	return HALF;
+    }
+    
+    public int getMaxAge()
+    {
+        return age_mature;
     }
     
     public BlockCropDouble.EnumBlockHalf getHalf (IBlockAccess blockAccess, BlockPos pos, IBlockState state) {
@@ -93,7 +106,6 @@ public class BlockCropDouble extends BlockCrops {
 		} else {
 			return BlockCropDouble.EnumBlockHalf.LOWER;
 		}
-    	
     }
     
     /*
@@ -126,7 +138,7 @@ public class BlockCropDouble extends BlockCrops {
             return worldIn.getBlockState(pos.down()).getBlock() == this && (worldIn.getLight(pos) >= 8 || worldIn.canSeeSky(pos));
         } else {
             Boolean above = true;
-            if (getAge(state) > 1) {
+            if (getAge(state) >= age_double) {
             	above = worldIn.getBlockState(pos.up()).getBlock() == this;
             } else {
             	above = worldIn.isAirBlock(pos.up());
@@ -155,6 +167,6 @@ public class BlockCropDouble extends BlockCrops {
     
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {AGE, HALF});
+        return new BlockStateContainer(this, new IProperty[] {CROP_AGE, HALF});
     }
 }

@@ -17,7 +17,13 @@ import net.minecraft.world.World;
 
 public class BlockCropTomato extends BlockCropDouble {
 	
-    protected Item getSeed()
+    public BlockCropTomato() {
+		super(3, 7);
+		setUnlocalizedName("crop_tomato");
+    	setRegistryName("crop_tomato");
+	}
+
+	protected Item getSeed()
     {
         return ModItems.TOMATO_SEED;
     }

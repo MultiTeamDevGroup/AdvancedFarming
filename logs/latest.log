@@ -1,28 +1,29 @@
-[15:01:54] [main/INFO]: Setting user: test
-[15:01:57] [main/WARN]: Skipping bad option: lastServer:
-[15:01:57] [main/INFO]: LWJGL Version: 2.9.4
-[15:02:00] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
-[15:02:06] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[15:02:06] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[15:02:06] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[15:02:06] [Thread-5/INFO]: OpenAL initialized.
-[15:02:06] [Sound Library Loader/INFO]: Sound engine started
-[15:02:09] [main/INFO]: Created: 512x512 textures-atlas
-[15:02:10] [main/WARN]: Skipping bad option: lastServer:
-[15:02:11] [main/INFO]: Narrator library for x64 successfully loaded
-[15:02:11] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
-[15:02:14] [Server thread/INFO]: Starting integrated minecraft server version 1.12.2
-[15:02:14] [Server thread/INFO]: Generating keypair
-[15:02:15] [Server thread/INFO]: Loaded 488 advancements
-[15:02:15] [Server thread/INFO]: Preparing start region for level 0
-[15:02:15] [Server thread/INFO]: Changing view distance to 12, from 10
-[15:02:17] [Server thread/INFO]: test[local:E:72d43beb] logged in with entity id 41 at (529.0947685153575, 4.0, -1480.4846779215438)
-[15:02:17] [Server thread/INFO]: test joined the game
-[15:02:18] [Server thread/INFO]: Saving and pausing game...
-[15:02:18] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
-[15:02:18] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
-[15:02:18] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
-[15:02:18] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@54b84cf2[id=530fa97a-357f-3c19-94d3-0c5c65c18fe8,name=test,properties={},legacy=false]
+[10:59:03] [main/INFO]: Setting user: test
+[10:59:06] [main/WARN]: Skipping bad option: lastServer:
+[10:59:06] [main/INFO]: LWJGL Version: 2.9.4
+[10:59:09] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:advancedfarming
+[10:59:15] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[10:59:15] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[10:59:15] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[10:59:15] [Thread-5/INFO]: OpenAL initialized.
+[10:59:16] [Sound Library Loader/INFO]: Sound engine started
+[10:59:18] [main/INFO]: Created: 512x512 textures-atlas
+[10:59:20] [main/WARN]: Skipping bad option: lastServer:
+[10:59:20] [main/INFO]: Narrator library for x64 successfully loaded
+[10:59:20] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[10:59:24] [Server thread/INFO]: Starting integrated minecraft server version 1.12.2
+[10:59:24] [Server thread/INFO]: Generating keypair
+[10:59:24] [Server thread/INFO]: Loaded 488 advancements
+[10:59:24] [Server thread/INFO]: Preparing start region for level 0
+[10:59:25] [Server thread/INFO]: Changing view distance to 12, from 10
+[10:59:26] [Server thread/INFO]: test[local:E:ee371322] logged in with entity id 39 at (529.4089567936948, 4.0, -1478.4065982831792)
+[10:59:26] [Server thread/INFO]: test joined the game
+[10:59:27] [Server thread/INFO]: Saving and pausing game...
+[10:59:27] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[10:59:27] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[10:59:27] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
+[10:59:27] [main/INFO]: Loaded 83 advancements
+[10:59:27] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@30c3747d[id=530fa97a-357f-3c19-94d3-0c5c65c18fe8,name=test,properties={},legacy=false]
 com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
 	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
@@ -44,13 +45,24 @@ com.mojang.authlib.exceptions.AuthenticationException: The client has sent too m
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_131]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_131]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_131]
-[15:02:18] [main/INFO]: Loaded 83 advancements
-[15:03:02] [main/INFO]: Stopping!
-[15:03:02] [Server thread/INFO]: Stopping server
-[15:03:02] [Server thread/INFO]: Saving players
-[15:03:02] [Server thread/INFO]: Saving worlds
-[15:03:02] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
-[15:03:02] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
-[15:03:02] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
-[15:03:02] [main/INFO]: SoundSystem shutting down...
-[15:03:02] [main/WARN]: Author: Paul Lamb, www.paulscode.com
+[10:59:40] [main/INFO]: [CHAT] There is no such item with name minecraft:tomato_seed
+[10:59:49] [Server thread/INFO]: [test: Given [Tomato Seeds] * 1 to test]
+[10:59:49] [main/INFO]: [CHAT] Given [Tomato Seeds] * 1 to test
+[11:00:15] [Server thread/INFO]: Saving and pausing game...
+[11:00:15] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[11:00:15] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[11:00:15] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
+[11:01:59] [Server thread/INFO]: <test> give test bone 64
+[11:01:59] [main/INFO]: [CHAT] <test> give test bone 64
+[11:02:03] [Server thread/INFO]: [test: Given [Bone] * 64 to test]
+[11:02:03] [main/INFO]: [CHAT] Given [Bone] * 64 to test
+[11:02:03] [main/INFO]: Loaded 84 advancements
+[11:03:54] [Server thread/INFO]: Saving and pausing game...
+[11:03:54] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[11:03:54] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[11:03:54] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
+[11:04:42] [main/INFO]: [CHAT] Saved screenshot as 2017-12-24_11.04.42.png
+[11:04:46] [Server thread/INFO]: Saving and pausing game...
+[11:04:46] [Server thread/INFO]: Saving chunks for level 'Survival Test'/overworld
+[11:04:46] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_nether
+[11:04:46] [Server thread/INFO]: Saving chunks for level 'Survival Test'/the_end
