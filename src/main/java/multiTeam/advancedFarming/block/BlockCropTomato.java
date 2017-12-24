@@ -3,6 +3,7 @@ package multiteam.advancedfarming.block;
 import java.util.Random;
 
 import multiteam.advancedfarming.item.ModItems;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -14,20 +15,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockCropTomato extends BlockCrop {
-	public static final PropertyInteger TOMATO_AGE = PropertyInteger.create("age", 0, 2);
-    private static final AxisAlignedBB[] TOMATO_AABB = new AxisAlignedBB[] {new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D)};
-
-    protected PropertyInteger getAgeProperty()
-    {
-        return TOMATO_AGE;
-    }
-
-    public int getMaxAge()
-    {
-        return 2;
-    }
-    
+public class BlockCropTomato extends BlockCropDouble {
+	
     protected Item getSeed()
     {
         return ModItems.TOMATO_SEED;
@@ -38,30 +27,13 @@ public class BlockCropTomato extends BlockCrop {
         return ModItems.TOMATO;
     }
     
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (rand.nextInt(2) == 0)
-        {
-            this.checkAndDropBlock(worldIn, pos, state);
-        }
-        else
-        {
-            super.updateTick(worldIn, pos, state, rand);
-        }
-    }
-    
-    protected int getBonemealAgeIncrease(World worldIn)
-    {
-        return super.getBonemealAgeIncrease(worldIn) / 2;
-    }
-    
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {TOMATO_AGE});
-    }
-
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return TOMATO_AABB[((Integer)state.getValue(this.getAgeProperty())).intValue()];
+    private void growBoth(World worldIn, BlockPos pos, IBlockState state) {
+    	if (state.getValue(HALF) == BlockCropDouble.EnumBlockHalf.LOWER) {
+    		if (state.getValue(AGE) > 2) {
+    			worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos).withProperty(HALF, BlockCropDouble.EnumBlockHalf.UPPER));
+    		}
+    	} else {
+    		worldIn.setBlockState(pos.down(), worldIn.getBlockState(pos).withProperty(HALF, BlockCropDouble.EnumBlockHalf.LOWER));
+    	}
     }
 }

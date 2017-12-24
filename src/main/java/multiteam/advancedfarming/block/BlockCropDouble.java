@@ -25,10 +25,12 @@ import net.minecraft.world.World;
 
 public class BlockCropDouble extends BlockCrops {
 	public static final PropertyEnum<BlockCropDouble.EnumBlockHalf> HALF = PropertyEnum.<BlockCropDouble.EnumBlockHalf>create("half", BlockCropDouble.EnumBlockHalf.class);
+	public static final int age_double;
 	
-    public BlockCropDouble() {
+    public BlockCropDouble(int age_double) {
     	super();
     	this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(HALF, BlockCropDouble.EnumBlockHalf.LOWER));
+    	this.age_double = age_double;
     }
     
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {

@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "normal": {
+            "model": "advancedfarming:oil_press"
+        },
+        "inventory": {
+            "model": "advancedfarming:oil_press"
+            "transform": "forge:default-block"
+        }
+    }
+}

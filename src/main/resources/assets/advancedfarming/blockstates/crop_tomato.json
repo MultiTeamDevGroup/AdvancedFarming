@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cross"
+    },
+    "variants": {
+        "age=0,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/0"}}],
+        "age=0,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/0"}}],
+        "age=1,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/1"}}],
+        "age=1,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/1"}}],
+        "age=2,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/2"}}],
+        "age=2,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/2"}}],
+        "age=3,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/3_upper"}}],
+        "age=3,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/3_lower"}}],
+        "age=4,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/4_upper"}}],
+        "age=4,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/4_lower"}}],
+        "age=5,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/5_upper"}}],
+        "age=5,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/5_lower"}}],
+        "age=6,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/6_upper"}}],
+        "age=6,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/6_lower"}}],
+        "age=7,half=upper": [{"textures": {"cross": "advancedfarming:blocks/tomato/7_upper"}}],
+        "age=7,half=lower": [{"textures": {"cross": "advancedfarming:blocks/tomato/7_lower"}}]
+    }
+}
